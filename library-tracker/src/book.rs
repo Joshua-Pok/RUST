@@ -1,15 +1,15 @@
-struct Book {
-    title: String,
-    author: String,
-    condition: String,
+pub struct Book {
+    pub title: String,
+    pub author: String,
+    pub condition: String,
 }
 
-struct Person {
-    name: String,
-    books: Vec<Book>, //a vec is a growable array
+pub struct Person {
+    pub name: String,
+    pub books: Vec<Book>, //a vec is a growable array
 }
 
-fn give_book_to_person(b: Book, p: &mut Person) {
+pub fn give_book_to_person(b: Book, p: &mut Person) {
     //binding: reference
     /*
     need an mutable reference in order to mutate
@@ -18,14 +18,16 @@ fn give_book_to_person(b: Book, p: &mut Person) {
     p.books.push(b);
 }
 
-fn lend_book_to_person(b: &Book, p: &Person)){
+pub fn lend_book_to_person(b: &Book) {
     /*
     read only borrowing
     function receives reference to book
 
     */
 
+    format!("Title: {}, Condition: {}", b.title, b.condition);
+}
 
-
-
+pub fn update_book_condition(b: &mut Book, new_condition: String) {
+    b.condition = new_condition
 }
